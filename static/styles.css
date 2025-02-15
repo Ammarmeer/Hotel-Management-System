@@ -1,0 +1,285 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 220px;
+    background-color: #2a9d8f;
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+.sidebar .logo img {
+    display: block;
+    width: 60%;  /* Increased size for better visibility */
+    margin: 10px auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    padding: 12px 20px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: block;
+    transition: background 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    padding-left: 5px; /* Slight movement for hover effect */
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Dashboard Cards */
+.dashboard-container {
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Status Colors */
+.booked { background-color: #dc3545; color: white; }
+.checkin { background-color: #007bff; color: white; }
+.checkout { background-color: #17a2b8; color: white; }
+.will-checkout { background-color: #ffc107; color: white; }
+.next-7-days { background-color: #6f42c1; color: white; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .main-content {
+        margin-left: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* Stack cards on small screens */
+    }
+}
+
+
+/* Responsive Container */
+.container {
+    max-width: 90%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #2a9d8f;  /* Custom Green Header */
+    color: white;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa; /* Light grey hover */
+}
+
+/* Custom Button */
+.btn-custom {
+    background-color: #2a9d8f;
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #21867a;
+    transform: scale(1.05);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+
+
+/* Custom Form Styling */
+.custom-form {
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Input and Select Fields */
+.form-control, .form-select {
+    width: 180px;  /* Adjust width to fit properly */
+    border: 2px solid #007bff;
+    transition: 0.3s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 91, 187, 0.3);
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    font-size: 18px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Custom Form Styling */
+.custom-form {
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Input and Select Fields */
+.form-control {
+    width: 200px; /* Adjust width for alignment */
+    border: 2px solid #28a745;
+    transition: 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #1c7430;
+    box-shadow: 0 0 10px rgba(44, 186, 64, 0.3);
+}
+
+/* Button Styling */
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    font-size: 18px;
+}
+
+.btn-success:hover {
+    background-color: #1c7430;
+}
+
+/* Custom Form Styling */
+.custom-form {
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Input and Select Fields */
+.form-control {
+    width: 200px; /* Adjust width for alignment */
+    border: 2px solid #007bff;
+    transition: 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    font-size: 18px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+
+

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h1>Hamaliya Hotel & Restaurant</h1>
+    <h2>Management Dashboard</h2>
+
+    <div class="stats-grid">
+        <div class="card">
+            <i class="fas fa-bed"></i>
+            <h3>Free Rooms</h3>
+            <p>{{ free_rooms }}</p>
+        </div>
+        <div class="card booked">
+            <i class="fas fa-door-closed"></i>
+            <h3>Booked Rooms</h3>
+            <p>{{ booked_rooms }}</p>
+        </div>
+        <div class="card checkin">
+            <i class="fas fa-user-check"></i>
+            <h3>Today's Check-ins</h3>
+            <p>{{ today_checkins }}</p>
+        </div>
+        <div class="card checkout">
+            <i class="fas fa-user-times"></i>
+            <h3>Today's Check-outs</h3>
+            <p>{{ today_checkouts }}</p>
+        </div>
+        <div class="card will-checkout">
+            <i class="fas fa-clock"></i>
+            <h3>Will Checkout Today</h3>
+            <p>{{ will_checkout_today }}</p>
+        </div>
+        <div class="card next-7-days">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Will Checkout in Next 7 Days</h3>
+            <p>{{ next_7_days_checkout }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

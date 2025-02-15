@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Visit{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">🚗 Add a New Visit</h1>
+
+    <form action="{{ url_for('visits.add_visit') }}" method="POST" class="custom-form shadow-lg p-4 rounded">
+        
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Visit Date:</label>
+                <input type="date" class="form-control rounded-pill" name="date" required>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Vehicle Number:</label>
+                <input type="text" class="form-control rounded-pill" name="vehicle_number" placeholder="ABC-1234" required>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Number of Persons:</label>
+                <input type="number" class="form-control rounded-pill" name="persons" min="1" required>
+            </div>
+
+
+            {% if free_rooms %}
+                <select class="form-select" name="rooms" multiple required>
+                    <option value="" disabled>Choose room(s)</option>
+                    {% for room in free_rooms %}
+                    <option value="{{ room.room_number }}">{{ room.room_number }}</option>
+                    {% endfor %}
+                </select>
+            {% else %}
+                <p class="text-danger">⚠ No available rooms found.</p>
+            {% endif %}
+
+            
+
+            <div class="col-md-3">
+                <label class="form-label">Check-in Date:</label>
+                <input type="date" class="form-control rounded-pill" name="checkin_date" required>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Check-out Date:</label>
+                <input type="date" class="form-control rounded-pill" name="checkout_date" required>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">➕ Add Visit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

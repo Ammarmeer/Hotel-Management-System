@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Room{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">🛏️ Add a New Room</h1>
+
+    <form method="POST" class="custom-form shadow-lg p-4 rounded d-flex flex-wrap align-items-center justify-content-center">
+        <div class="form-group mx-2">
+            <label class="form-label">Room Number:</label>
+            <input type="text" class="form-control rounded-pill" name="room_number" required>
+        </div>
+
+        <div class="form-group mx-2">
+            <label class="form-label">Floor Number:</label>
+            <input type="number" class="form-control rounded-pill" name="floor_number" required>
+        </div>
+
+        <div class="form-group mx-2">
+            <label class="form-label">Washroom Seat Type:</label>
+            <select class="form-select rounded-pill" name="washroom_seat_type">
+                <option value="English">English</option>
+                <option value="Indian">Indian</option>
+            </select>
+        </div>
+
+        <div class="form-group mx-2">
+            <label class="form-label">Condition:</label>
+            <input type="text" class="form-control rounded-pill" name="condition" required>
+        </div>
+
+        <div class="form-group mx-2">
+            <label class="form-label">Single Beds:</label>
+            <input type="number" class="form-control rounded-pill" name="single_bed" required>
+        </div>
+
+        <div class="form-group mx-2">
+            <label class="form-label">Double Beds:</label>
+            <input type="number" class="form-control rounded-pill" name="double_bed" required>
+        </div>
+
+        <div class="mx-2 mt-3">
+            <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">➕ Add Room</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

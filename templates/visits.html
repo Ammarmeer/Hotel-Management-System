@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Visits{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="page-title text-center">🚗 Visit List</h1>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Vehicle Number</th>
+                    <th>Persons</th>
+                    <th>Rooms</th>
+                    <th>Check-in Date</th>
+                    <th>Check-out Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for visit in visits %}
+                <tr>
+                    <td>{{ visit.date }}</td>
+                    <td>{{ visit.vehicle_number }}</td>
+                    <td>{{ visit.persons }}</td>
+                    <td>{{ visit.rooms | join(', ') }}</td>  <!-- Ensure rooms display properly -->
+                    <td>{{ visit.checkin_date }}</td>
+                    <td>{{ visit.checkout_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-3">
+        <a href="{{ url_for('visits.add_visit') }}" class="btn btn-primary btn-lg">➕ Add New Visit</a>
+    </div>
+</div>
+{% endblock %}

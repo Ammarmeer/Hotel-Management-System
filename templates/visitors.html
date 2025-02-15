@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Visitors{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Visitor List</h1>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Father's Name</th>
+                    <th>CNIC</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for visitor in visitors %}
+                <tr>
+                    <td>{{ visitor.name }}</td>
+                    <td>{{ visitor.father_name }}</td>
+                    <td>{{ visitor.cnic }}</td>
+                    <td>{{ visitor.phone }}</td>
+                    <td>{{ visitor.address }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center">
+        <a href="{{ url_for('visitors.add_visitor') }}" class="btn btn-custom mt-3">
+            ➕ Add New Visitor
+        </a>
+    </div>
+</div>
+{% endblock %}
