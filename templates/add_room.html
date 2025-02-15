@@ -6,40 +6,62 @@
 <div class="container mt-5">
     <h1 class="text-center mb-4">🛏️ Add a New Room</h1>
 
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div>
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} mt-2" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Form -->
     <form method="POST" class="custom-form shadow-lg p-4 rounded d-flex flex-wrap align-items-center justify-content-center">
+        <!-- Room Number -->
         <div class="form-group mx-2">
             <label class="form-label">Room Number:</label>
-            <input type="text" class="form-control rounded-pill" name="room_number" required>
+            <input type="text" class="form-control rounded-pill" name="room_number" placeholder="Enter room number" required>
         </div>
 
+        <!-- Floor Number -->
         <div class="form-group mx-2">
             <label class="form-label">Floor Number:</label>
-            <input type="number" class="form-control rounded-pill" name="floor_number" required>
+            <input type="number" class="form-control rounded-pill" name="floor_number" placeholder="Enter floor number" required>
         </div>
 
+        <!-- Washroom Seat Type -->
         <div class="form-group mx-2">
             <label class="form-label">Washroom Seat Type:</label>
-            <select class="form-select rounded-pill" name="washroom_seat_type">
+            <select class="form-select rounded-pill" name="washroom_seat_type" required>
+                <option value="" disabled selected>-- Select Seat Type --</option>
                 <option value="English">English</option>
                 <option value="Indian">Indian</option>
             </select>
         </div>
 
+        <!-- Room Condition -->
         <div class="form-group mx-2">
             <label class="form-label">Condition:</label>
-            <input type="text" class="form-control rounded-pill" name="condition" required>
+            <input type="text" class="form-control rounded-pill" name="condition" placeholder="Enter room condition (e.g., Excellent, Good)" required>
         </div>
 
+        <!-- Single Beds -->
         <div class="form-group mx-2">
             <label class="form-label">Single Beds:</label>
-            <input type="number" class="form-control rounded-pill" name="single_bed" required>
+            <input type="number" class="form-control rounded-pill" name="single_bed" placeholder="Enter the number of single beds" min="0" required>
         </div>
 
+        <!-- Double Beds -->
         <div class="form-group mx-2">
             <label class="form-label">Double Beds:</label>
-            <input type="number" class="form-control rounded-pill" name="double_bed" required>
+            <input type="number" class="form-control rounded-pill" name="double_bed" placeholder="Enter the number of double beds" min="0" required>
         </div>
 
+        <!-- Submit Button -->
         <div class="mx-2 mt-3">
             <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">➕ Add Room</button>
         </div>

@@ -1,4 +1,8 @@
 from extensions import db
+from enum import Enum
+class RoomStatus(Enum):
+    Free = 'Free'
+    Booked = 'Booked'
 
 class Room(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -8,10 +12,10 @@ class Room(db.Model):
     condition = db.Column(db.String(50), nullable=False)
     single_bed = db.Column(db.Integer, nullable=False)
     double_bed = db.Column(db.Integer, nullable=False)
-    status = db.Column(db.String(50), nullable=False)  # Free, Booked
+    status = db.Column(db.Enum(RoomStatus), nullable=False)  # Changed to Enum
 
-    # ✅ Relationship with Visitors
     visitors = db.relationship('Visitor', back_populates='room')
+
 
 class Visitor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +27,9 @@ class Visitor(db.Model):
     room_id = db.Column(db.Integer, db.ForeignKey('room.id'), nullable=True)
     room = db.relationship('Room', back_populates='visitors')
     visits = db.relationship('Visit', back_populates='visitor', cascade="all, delete-orphan")
+    __table_args__ = (
+        db.UniqueConstraint('name', 'father_name', 'cnic', name='unique_visitor_constraint'),
+    )
 
 class Visit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
